@@ -1,4 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
+$mainColor: Teal;
+$mainFont: 'Sarabun', sans-serif;
+
 * {
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	background: $mainColor;
+	color: $mainColor;
+	height: 100vh;
+	font-family: $mainFont;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.quoteBox {
+	width: 450px;
+	background: white;
+	padding: 30px;
+	.quoteText {
+		font-size: 2em;
+	}
+	.quoteAuthor {
+		text-align: right;
+		margin-top: 20px;
+	}
 }

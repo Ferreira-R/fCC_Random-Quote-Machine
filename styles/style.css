@@ -1,5 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun&display=swap");
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  background: Teal;
+  color: Teal;
+  height: 100vh;
+  font-family: "Sarabun", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quoteBox {
+  width: 450px;
+  background: white;
+  padding: 30px;
+}
+
+.quoteBox .quoteText {
+  font-size: 2em;
+}
+
+.quoteBox .quoteAuthor {
+  text-align: right;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=style.css.map */

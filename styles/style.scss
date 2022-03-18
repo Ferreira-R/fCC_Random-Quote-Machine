@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
 
 $mainColor: Teal;
+$secondaryColor: white;
 $mainFont: 'Sarabun', sans-serif;
 
 * {
@@ -9,9 +10,9 @@ $mainFont: 'Sarabun', sans-serif;
 }
 
 body {
+	height: 100vh;
 	background: $mainColor;
 	color: $mainColor;
-	height: 100vh;
 	font-family: $mainFont;
 	display: flex;
 	justify-content: center;
@@ -20,13 +21,55 @@ body {
 
 .quoteBox {
 	width: 450px;
-	background: white;
-	padding: 30px;
+	padding: 40px 50px;
+	border-radius: 3px;
+	background: $secondaryColor;
 	.quoteText {
+		i {
+			font-size: 1em;
+			margin-right: 0.4em;
+		}
 		font-size: 2em;
+		font-weight: 500;
+		text-align: center;
 	}
 	.quoteAuthor {
+		font-size: 1em;
+		margin-top: 10px;
 		text-align: right;
-		margin-top: 20px;
+	}
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		.socialMedia {
+			display: flex;
+		}
+		.button {
+			margin-top: 30px;
+			border-radius: 3px;
+			background: $mainColor;
+			color: $secondaryColor;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&#twitter,
+			&#tumblr {
+				height: 40px;
+				width: 40px;
+				margin-right: 5px;
+			}
+			&#newQuote {
+				padding: 8px 16px;
+				border: none;
+			}
+		}
+	}
+}
+
+//**Responsive Design**
+//*Mobile*
+@media screen and (max-width: 600px) {
+	.quoteBox {
+		width: 70vw;
 	}
 }

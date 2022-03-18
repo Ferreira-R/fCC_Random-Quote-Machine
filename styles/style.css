@@ -5,9 +5,9 @@
 }
 
 body {
+  height: 100vh;
   background: Teal;
   color: Teal;
-  height: 100vh;
   font-family: "Sarabun", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,16 +22,73 @@ body {
 
 .quoteBox {
   width: 450px;
+  padding: 40px 50px;
+  border-radius: 3px;
   background: white;
-  padding: 30px;
 }
 
 .quoteBox .quoteText {
   font-size: 2em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.quoteBox .quoteText i {
+  font-size: 1em;
+  margin-right: 0.4em;
 }
 
 .quoteBox .quoteAuthor {
+  font-size: 1em;
+  margin-top: 10px;
   text-align: right;
-  margin-top: 20px;
+}
+
+.quoteBox .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.quoteBox .buttons .socialMedia {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.quoteBox .buttons .button {
+  margin-top: 30px;
+  border-radius: 3px;
+  background: Teal;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quoteBox .buttons .button#twitter, .quoteBox .buttons .button#tumblr {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.quoteBox .buttons .button#newQuote {
+  padding: 8px 16px;
+  border: none;
+}
+
+@media screen and (max-width: 600px) {
+  .quoteBox {
+    width: 70vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */

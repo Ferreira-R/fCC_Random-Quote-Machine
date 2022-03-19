@@ -61,9 +61,15 @@ body {
 			&#newQuote {
 				padding: 8px 16px;
 				border: none;
+				cursor: pointer;
 			}
 		}
 	}
+}
+
+.aniBounce {
+	animation: bounce;
+	animation-duration: 2s;
 }
 
 //**Responsive Design**

@@ -84,6 +84,14 @@ body {
 .quoteBox .buttons .button#newQuote {
   padding: 8px 16px;
   border: none;
+  cursor: pointer;
+}
+
+.aniBounce {
+  -webkit-animation: bounce;
+          animation: bounce;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 
 @media screen and (max-width: 600px) {

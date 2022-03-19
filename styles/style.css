@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Sarabun&display=swap");
+:root {
+  --mainColor: Teal;
+  --secondaryColor: White;
+  --mainFont: 'Saruban', sans-serif;
+  --bgColor: Black;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +13,9 @@
 
 body {
   height: 100vh;
-  background: Teal;
-  color: Teal;
-  font-family: "Sarabun", sans-serif;
+  background: var(--mainColor);
+  color: var(--mainColor);
+  font-family: var(--mainFont);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,18 +25,24 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: bgChange;
+          animation: bgChange;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .quoteBox {
   width: 450px;
   padding: 40px 50px;
   border-radius: 3px;
-  background: white;
+  background: var(--secondaryColor);
 }
 
 .quoteBox .quoteText {
   font-size: 2em;
-  font-weight: 500;
+  font-weight: 100;
   text-align: center;
 }
 
@@ -62,8 +75,8 @@ body {
 .quoteBox .buttons .button {
   margin-top: 30px;
   border-radius: 3px;
-  background: Teal;
-  color: white;
+  background: var(--mainColor);
+  color: var(--secondaryColor);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,11 +100,30 @@ body {
   cursor: pointer;
 }
 
-.aniBounce {
-  -webkit-animation: bounce;
-          animation: bounce;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+.fadeOut {
+  -webkit-animation: fadeOut;
+          animation: fadeOut;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn;
+          animation: fadeIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes bgChange {
+  to {
+    background-color: var(--bgColor);
+  }
+}
+
+@keyframes bgChange {
+  to {
+    background-color: var(--bgColor);
+  }
 }
 
 @media screen and (max-width: 600px) {

@@ -19,23 +19,36 @@ const colors = [
 document.addEventListener('DOMContentLoaded', () => {
 	// DOM elements
 	const button = document.querySelector('#newQuote');
-	const quoteText = document.querySelector('#quote');
-	const quoteAuthor = document.querySelector('#author');
+	const quoteText = document.querySelector('.quoteText');
+	const quoteAuthor = document.querySelector('.quoteAuthor');
+	const quote = document.querySelector('#quote');
+	const author = document.querySelector('#author');
 
 	async function updateQuote() {
-		button.classList.remove('aniBounce');
+		quoteText.classList.add('fadeOut');
+		quoteText.classList.remove('fadeIn');
+		quoteAuthor.classList.add('fadeOut');
+		quoteAuthor.classList.remove('fadeIn');
 		// Fetch a random quote from the Quotable API
 		const response = await fetch('https://api.quotable.io/random');
 		const data = await response.json();
-		if (response.ok) {
-			// Update DOM elements
-			quoteText.textContent = data.content;
-			quoteAuthor.textContent = `- ${data.author}`;
-		} else {
-			quote.textContent = 'An error occured';
-			console.log(data);
-		}
-		button.classList.add('aniBounce');
+		quoteText.addEventListener('animationend', e => {
+			// console.log(e.animationName);
+			if (e.animationName == 'fadeOut') {
+				if (response.ok) {
+					// Update DOM elements
+					quote.textContent = data.content;
+					author.textContent = `- ${data.author}`;
+					quoteText.classList.add('fadeIn');
+					quoteAuthor.classList.add('fadeIn');
+				} else {
+					quote.textContent = 'An error occured';
+					console.log(data);
+				}
+				quoteText.classList.remove('fadeOut');
+				quoteAuthor.classList.remove('fadeOut');
+			}
+		});
 	}
 
 	// Attach an event listener to the `button`

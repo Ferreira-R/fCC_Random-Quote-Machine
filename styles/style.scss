@@ -4,7 +4,7 @@
 	--mainColor: Teal;
 	--secondaryColor: White;
 	--mainFont: 'Saruban', sans-serif;
-	--bgColor: Black;
+	--newColor: Black;
 }
 
 * {
@@ -20,9 +20,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	animation: bgChange;
-	animation-duration: 1.5s;
-	animation-fill-mode: forwards;
+	// animation: changeBackground 3s forwards;
+	transition: background 3s;
 }
 
 .quoteBox {
@@ -75,19 +74,31 @@ body {
 
 //**Animations**
 .fadeOut {
-	animation: fadeOut;
-	animation-duration: 0.5s;
+	animation: fadeOut 0.5s;
 }
 
 .fadeIn {
-	animation: fadeIn;
-	animation-duration: 1s;
+	animation: fadeIn 1s;
 }
 
-@keyframes bgChange {
+@keyframes changeBackground {
 	to {
-		background-color: var(--bgColor);
+		background: var(--newColor);
 	}
+}
+
+.changeBackground {
+	animation: changeBackground 1.5s forwards, changeColor 1.5s forwards;
+}
+
+@keyframes changeColor {
+	to {
+		color: var(--newColor);
+	}
+}
+
+.changeColor {
+	animation: changeColor 1.5s forwards;
 }
 
 //**Responsive Design**

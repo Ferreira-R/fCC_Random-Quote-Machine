@@ -13,16 +13,29 @@ const colors = [
 	'#73A857',
 ];
 
+const randomColor = () => colors[Math.floor(Math.random() * colors.length)];
+
 // Powered by Quotable
 // https://github.com/lukePeavey/quotable
 
 document.addEventListener('DOMContentLoaded', () => {
 	// DOM elements
-	const button = document.querySelector('#newQuote');
+	const bodyElm = document.querySelector('body');
 	const quoteText = document.querySelector('.quoteText');
 	const quoteAuthor = document.querySelector('.quoteAuthor');
 	const quote = document.querySelector('#quote');
 	const author = document.querySelector('#author');
+	const button = document.querySelector('#newQuote');
+
+	let newColor = '#000000';
+
+	async function changeBackground() {
+		// bodyElm.style.animation = 'changeBackground 3s fordwards';
+		newColor = randomColor();
+		document.documentElement.style.setProperty('--newColor', newColor);
+		bodyElm.classList.add('changeBackground');
+		// bodyElm.classList.add('changeColor');
+	}
 
 	async function updateQuote() {
 		quoteText.classList.add('fadeOut');
@@ -34,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const data = await response.json();
 		quoteText.addEventListener('animationend', e => {
 			// console.log(e.animationName);
-			if (e.animationName == 'fadeOut') {
+			if (e.animationName === 'fadeOut') {
 				if (response.ok) {
 					// Update DOM elements
 					quote.textContent = data.content;
@@ -49,11 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
 				quoteAuthor.classList.remove('fadeOut');
 			}
 		});
+		bodyElm.addEventListener('animationend', e => {
+			if (e.animationName === 'changeBackground') {
+				bodyElm.style.setProperty('background', newColor);
+				bodyElm.style.setProperty('color', newColor);
+				bodyElm.classList.remove('changeBackground');
+			}
+		});
 	}
 
 	// Attach an event listener to the `button`
 	button.addEventListener('click', updateQuote);
+	button.addEventListener('click', changeBackground);
 
 	// call updateQuote once when page loads
 	updateQuote();
+	changeBackground();
 });

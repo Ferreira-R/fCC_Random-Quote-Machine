@@ -25,16 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	const quoteAuthor = document.querySelector('.quoteAuthor');
 	const quote = document.querySelector('#quote');
 	const author = document.querySelector('#author');
+	// const buttons = document.querySelector('.button'); //Revisar
+	const twitter = document.querySelector('#twitter');
+	const tumblr = document.querySelector('#tumblr');
 	const button = document.querySelector('#newQuote');
 
 	let newColor = '#000000';
 
 	async function changeBackground() {
-		// bodyElm.style.animation = 'changeBackground 3s fordwards';
 		newColor = randomColor();
 		document.documentElement.style.setProperty('--newColor', newColor);
-		bodyElm.classList.add('changeBackground');
-		// bodyElm.classList.add('changeColor');
+		bodyElm.classList.add('changeBackgroundAndColor');
+		twitter.classList.add('changeBackground');
+		tumblr.classList.add('changeBackground');
+		button.classList.add('changeBackground');
 	}
 
 	async function updateQuote() {
@@ -63,10 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 		bodyElm.addEventListener('animationend', e => {
-			if (e.animationName === 'changeBackground') {
+			if (e.animationName === 'changeBackgroundAndColor') {
 				bodyElm.style.setProperty('background', newColor);
 				bodyElm.style.setProperty('color', newColor);
-				bodyElm.classList.remove('changeBackground');
+				twitter.style.setProperty('background', newColor);
+				tumblr.style.setProperty('background', newColor);
+				button.style.setProperty('background', newColor);
+				bodyElm.classList.remove('changeBackgroundAndColor');
+				twitter.classList.remove('changeBackground');
+				tumblr.classList.remove('changeBackground');
+				button.classList.remove('changeBackground');
 			}
 		});
 	}

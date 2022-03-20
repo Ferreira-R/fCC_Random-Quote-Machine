@@ -109,35 +109,39 @@ body {
 @-webkit-keyframes changeBackground {
   to {
     background: var(--newColor);
+    color: var(--secondaryColor);
   }
 }
 
 @keyframes changeBackground {
   to {
     background: var(--newColor);
+    color: var(--secondaryColor);
   }
 }
 
 .changeBackground {
-  -webkit-animation: changeBackground 1.5s forwards, changeColor 1.5s forwards;
-          animation: changeBackground 1.5s forwards, changeColor 1.5s forwards;
+  -webkit-animation: changeBackground 1.5s forwards;
+          animation: changeBackground 1.5s forwards;
 }
 
-@-webkit-keyframes changeColor {
+@-webkit-keyframes changeBackgroundAndColor {
   to {
+    background: var(--newColor);
     color: var(--newColor);
   }
 }
 
-@keyframes changeColor {
+@keyframes changeBackgroundAndColor {
   to {
+    background: var(--newColor);
     color: var(--newColor);
   }
 }
 
-.changeColor {
-  -webkit-animation: changeColor 1.5s forwards;
-          animation: changeColor 1.5s forwards;
+.changeBackgroundAndColor {
+  -webkit-animation: changeBackgroundAndColor 1.5s forwards;
+          animation: changeBackgroundAndColor 1.5s forwards;
 }
 
 @media screen and (max-width: 600px) {

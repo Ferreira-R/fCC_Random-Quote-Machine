@@ -84,21 +84,23 @@ body {
 @keyframes changeBackground {
 	to {
 		background: var(--newColor);
+		color: var(--secondaryColor);
 	}
 }
 
 .changeBackground {
-	animation: changeBackground 1.5s forwards, changeColor 1.5s forwards;
+	animation: changeBackground 1.5s forwards;
 }
 
-@keyframes changeColor {
+@keyframes changeBackgroundAndColor {
 	to {
+		background: var(--newColor);
 		color: var(--newColor);
 	}
 }
 
-.changeColor {
-	animation: changeColor 1.5s forwards;
+.changeBackgroundAndColor {
+	animation: changeBackgroundAndColor 1.5s forwards;
 }
 
 //**Responsive Design**
